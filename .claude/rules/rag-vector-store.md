@@ -9,9 +9,10 @@ Rationale and trade-offs live in `spec/architecture.md` and `spec/rag-ingestion.
 - Chunk text is prefixed with a short header (`[TKT-1001 | PAYMENT | HIGH | RESOLVED] Title`) so each chunk is self-describing when retrieved alone.
 
 ## Chunking convention
-- Structure-aware, not fixed-size: `SUMMARY` chunk = title + description + resolution; each comment (or group of short comments) = a `COMMENT` chunk.
-- Only split a section with `TokenTextSplitter` if it exceeds ~500 tokens (overlap ~50).
-- Deterministic chunk IDs: `<ticketId>#summary`, `<ticketId>#comment-<commentId>`.
+- Structure-aware, not fixed-size: `SUMMARY` chunk = title + description + resolution; comments are packed in time order into `COMMENTS` chunks of ≤ 400 tokens, breaking only between comments.
+- Only split a section with `TokenTextSplitter` if it exceeds ~500 tokens; repeat the header on every piece.
+- Deterministic chunk IDs: `UUID.nameUUIDFromBytes("<ticketId>#<chunkType>#<index>")` (PgVectorStore ids are UUIDs).
+- Metadata values are never `null` (Spring AI `Document` rejects them): unassigned → `"unassigned"`.
 
 ## Embeddings & store
 - Embedding model: OpenAI `text-embedding-3-small` (1536 dims). Changing model ⇒ full re-index; dimension is set in config, not code.
@@ -19,6 +20,7 @@ Rationale and trade-offs live in `spec/architecture.md` and `spec/rag-ingestion.
 
 ## Freshness
 - On ticket create/update/comment/status change: delete all chunks where `ticketId == X`, then re-add. Triggered via `@TransactionalEventListener(phase = AFTER_COMMIT)` so the vector store never contains uncommitted data.
+- The re-index work runs in `Propagation.REQUIRES_NEW` — in AFTER_COMMIT the original transaction is already committed, so writes without a new transaction are silently lost. Synchronous (no `@Async`), failures logged, never rethrown.
 - A startup/admin re-index (`POST /api/ai/reindex`) exists for recovery.
 
 ## Retrieval defaults (configurable, never hardcoded)
