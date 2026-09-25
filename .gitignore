@@ -1,0 +1,16 @@
+# secrets
+.env
+.env.*
+!.env.example
+# java
+backend/target/
+*.class
+.idea/
+*.iml
+# node
+frontend/node_modules/
+frontend/dist/
+# os / tooling
+.DS_Store
+.claude/settings.local.json
+graphify-out/
