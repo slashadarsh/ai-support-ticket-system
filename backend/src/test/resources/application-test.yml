@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tickets_test
+    username: tickets
+    password: ""
+  ai:
+    # No real OpenAI in normal tests: TestAiConfig provides FakeEmbeddingModel and a mocked ChatModel.
+    model:
+      chat: none
+      embedding: none
+
+app:
+  rag:
+    # FakeEmbeddingModel (bag of words) similarities are on a different scale than OpenAI's.
+    similarity-threshold: 0.1
+  seed:
+    enabled: false
+
+logging:
+  level:
+    com.example.tickets: INFO
