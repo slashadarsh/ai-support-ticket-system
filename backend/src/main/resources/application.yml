@@ -47,7 +47,8 @@ spring:
 app:
   rag:
     top-k: 5
-    similarity-threshold: 0.45
+    # Calibrated on the golden set (docs/rag-evaluation-report.md): safe band 0.35–0.50, 0.40 keeps margin both sides.
+    similarity-threshold: 0.40
     chunk:
       max-tokens: 400
   seed:

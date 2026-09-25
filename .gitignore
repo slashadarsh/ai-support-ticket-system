@@ -13,4 +13,6 @@ frontend/dist/
 # os / tooling
 .DS_Store
 .claude/settings.local.json
-graphify-out/
+# graphify: commit the graph, report and viewer; not local caches or machine-specific paths
+graphify-out/.*
+graphify-out/cache/

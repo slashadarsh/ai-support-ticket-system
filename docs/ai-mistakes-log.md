@@ -66,3 +66,31 @@ wrong code **and** ungrounded / hallucinated assistant answers. Format: see `.cl
 - Why it was wrong: pgvector 0.8.1 was already available (`pg_available_extensions`); the advice was not grounded in the actual environment.
 - How it was caught: checking the database before running the command.
 - Fix: no install; CLAUDE.md records the verified environment (JDK 21 path, pgvector version, trust auth).
+
+## M-9: RAG answer left out a matching CRITICAL ticket (incomplete answer)
+- Phase: RAG answer (evaluation G5, real OpenAI run)
+- What the AI produced: for "Which high-priority tickets are related to payment?" the assistant listed TKT-1001 and TKT-1005 only. TKT-1002 (PAYMENT, **CRITICAL**) had been retrieved (score 0.495) and passed the `priority in [HIGH, CRITICAL]` filter, but was silently dropped.
+- Why it was wrong: the model applied its own literal reading of "high-priority" (HIGH only) instead of the system's definition (ADR-7). The answer was grounded but incomplete, which the automated metrics (hit@K, citation precision) did not catch.
+- How it was caught: manual `/review-rag-output`-style claim audit of the evaluation answers (`target/rag-eval/results.json`).
+- Fix: system prompt now defines the priority scale ("high-priority" = HIGH + CRITICAL) and says to list every matching ticket. Re-run: G5 cites TKT-1001, TKT-1005 and TKT-1002.
+
+## M-10: RAG answer presented a suspected cause as established
+- Phase: RAG answer (evaluation G3)
+- What the AI produced: "Common causes … 2) Exceeding carrier API rate limits, leading to HTTP 429 errors …" citing TKT-1011.
+- Why it was wrong: TKT-1011 is IN_PROGRESS and its comment says "*suspect* we exceed their rate limit". The claim is supported only as a suspicion; stating it as a known cause is ungrounded certainty.
+- How it was caught: claim-by-claim audit (`/review-rag-output` procedure).
+- Fix: prompt rule separating confirmed causes (resolution notes) from suspicions in OPEN/IN_PROGRESS tickets. Re-run: "… suspected in international shipments in TKT-1011".
+
+## M-11: RAG answer claimed a ticket had no resolution (partial context)
+- Phase: RAG answer (live UI check, "Have we seen payment failures before?")
+- What the AI produced: "3) Customers were charged twice after payment retry, noted but no detailed resolution provided [TKT-1003]."
+- Why it was wrong: TKT-1003 is CLOSED with full resolution notes (missing idempotency key; 14 charges refunded). Top-K was filled by other chunks, so only TKT-1003's COMMENTS chunk was retrieved; the model turned "not in my context" into "the ticket has no resolution", a false negative claim.
+- How it was caught: reading the answer in the UI, then inspecting `retrieval.matches` and the `vector_store` rows for TKT-1003.
+- Fix: context expansion (ADR-10). Every retrieved ticket's SUMMARY chunk (problem + resolution) is always added to the LLM context via a metadata lookup (no extra embedding call). A prompt rule forbids inferring absence from partial context. Regression test: `AskApiIT.contextAlwaysIncludesTheSummaryOfEveryRetrievedTicket`.
+
+## M-12: Threshold calibration rule in the spec would have picked the cliff edge
+- Phase: spec (evaluation-strategy.md §4)
+- What the AI produced: "Choose the **highest** threshold whose hit@K is ≥ 0.9."
+- Why it was wrong: the sweep showed hit@K = 1.00 up to 0.50 and 0.33 at 0.55. The rule selects 0.50, one small step from collapse, and drops secondary relevant tickets (e.g. TKT-1002/1003 for G1 at ~0.46) that summary questions need.
+- How it was caught: reading the actual sweep table before applying the rule.
+- Fix: rule changed to "pick a value inside the safe band (hit@K ≥ 0.9 and no out-of-scope question retrieves chunks) with margin to both edges". Safe band 0.35–0.50 → **0.40**.

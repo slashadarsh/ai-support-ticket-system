@@ -16,8 +16,8 @@ Traces to: all spec files. Each task is done when its tests pass and `/review-co
 | T-10 | M4 Ask | `PromptFactory` + static system prompt (≥ 1,024 tokens) | rag-api-contract §2, ADR-5 | — | `PromptFactoryTest` (NFR-8, NFR-13) || ✅ |
 | T-11 | M4 Ask | `AskService`, `CitationValidator`, `AskController`, 503 mapping | rag-api-contract §1, §3 | AC-16..AC-18 | `AskServiceTest`, `CitationValidatorTest`, `AskApiIT` || ✅ |
 | T-12 | M4 Ask | Seed data (30 tickets) + `SeedDataLoader` | evaluation-strategy §1, rag-ingestion §5 | — | `RestartIT` (AC-11) || ✅ |
-| T-13 | M5 Frontend | Vite app, `api.ts`, list/create/detail/ask pages, error display | ui-flow | AC-1..AC-8, AC-13 | Vitest page tests | ☐ |
-| T-14 | M6 Evaluation | `RagEvaluationIT` (threshold sweep + golden questions), calibrate threshold, report | evaluation-strategy | AC-16..AC-18 | `mvn -Prag-eval verify` | ☐ |
-| T-15 | M6 Wrap-up | `/review-code` pass, README, token-optimisation doc, final secret scan | test-strategy §2 (AC-19, AC-22, AC-23) | AC-19, AC-22, AC-23 | review checklist | ☐ |
+| T-13 | M5 Frontend | Vite app, `api.ts`, list/create/detail/ask pages, error display | ui-flow | AC-1..AC-8, AC-13 | Vitest page tests || ✅ |
+| T-14 | M6 Evaluation | `RagEvaluationIT` (threshold sweep + golden questions), calibrate threshold, report | evaluation-strategy | AC-16..AC-18 | `mvn -Prag-eval verify` || ✅ |
+| T-15 | M6 Wrap-up | `/review-code` pass, README, token-optimisation doc, final secret scan | test-strategy §2 (AC-19, AC-22, AC-23) | AC-19, AC-22, AC-23 | review checklist || ✅ |
 
 Order: T-01 → T-15. Backend milestones M1–M4 before the frontend, so the UI is built against a tested API.

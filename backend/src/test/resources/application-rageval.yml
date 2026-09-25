@@ -1,0 +1,13 @@
+# RAG evaluation: real OpenAI models (key from .env / environment), isolated tickets_test database.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tickets_test
+    username: tickets
+    password: ""
+app:
+  seed:
+    enabled: false
+logging:
+  level:
+    com.example.tickets.ai.ask: DEBUG
+    com.example.tickets.ai.ingest: WARN

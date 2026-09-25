@@ -127,6 +127,25 @@ class AskApiIT extends AbstractIntegrationTest {
         }
     }
 
+    /** Regression for M-11: a ticket matched only through its comments must still reach the LLM with its resolution. */
+    @Test
+    void contextAlwaysIncludesTheSummaryOfEveryRetrievedTicket() throws Exception {
+        String key = createTicket("Checkout anomaly", "Generic checkout anomaly report", "LOW", "OTHER");
+        patchJson("/api/tickets/" + key, Map.of("resolutionNotes", "Added idempotency keys to payment requests."));
+        postJson("/api/tickets/" + key + "/comments", Map.of("author", "Anita", "body", "Duplicate charges refunded twice"));
+        when(chatModel.call(any(Prompt.class))).thenReturn(modelSays("""
+                {"answerable": false, "answer": "", "citedTicketIds": []}"""));
+
+        ask("duplicate charges refunded")
+                .andExpect(jsonPath("$.retrieval.matches.length()").value(1))
+                .andExpect(jsonPath("$.retrieval.matches[0].chunkType").value("COMMENTS"));
+
+        ArgumentCaptor<Prompt> captor = ArgumentCaptor.forClass(Prompt.class);
+        verify(chatModel).call(captor.capture());
+        assertThat(captor.getValue().getInstructions().get(1).getText())
+                .contains("Resolution: Added idempotency keys to payment requests.", "Duplicate charges refunded twice");
+    }
+
     @Test
     void providerFailureReturns503() throws Exception {
         when(chatModel.call(any(Prompt.class))).thenThrow(new TransientAiException("rate limited"));

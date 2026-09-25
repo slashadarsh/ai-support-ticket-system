@@ -93,7 +93,7 @@ N5 is deliberately hard: it tests grounding when retrieval returns something vag
 
 `text-embedding-3-small` similarities are low in absolute terms, so the 0.45 default is a hypothesis. Before the full eval, `ThresholdSweepIT` runs **retrieval only** (no LLM, cheap) for all questions at thresholds 0.20 → 0.60 in steps of 0.05 and prints, per threshold: hit@K for G1–G9 and how many N-questions still retrieve ≥ 1 chunk.
 
-Choose the **highest** threshold whose hit@K is ≥ 0.9. N-questions that still retrieve chunks at that threshold must then be stopped by the LLM (`CONTEXT_INSUFFICIENT`), which the full eval verifies. The chosen value, the sweep table and the reasoning go into `docs/rag-evaluation-report.md`, and `app.rag.similarity-threshold` is updated.
+Choose a threshold **inside the safe band** — hit@K ≥ 0.9 *and* no N-question retrieves chunks — with margin to both edges, preferring the lower half (more recall for summary questions; the LLM and the citation validator guard precision). *(Rev: the original rule "highest threshold with hit@K ≥ 0.9" would have picked the cliff edge — M-12.)* Result: band 0.35–0.50 → **0.40**. The chosen value, the sweep table and the reasoning go into `docs/rag-evaluation-report.md`, and `app.rag.similarity-threshold` is updated.
 
 ## 5. How to run
 

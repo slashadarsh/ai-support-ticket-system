@@ -75,7 +75,7 @@ One chat call per question (NFR-7): no tools, no memory, `temperature: 0`.
    - Never propose or claim actions (creating tickets, notifying people) (OS-2..OS-4).
    - Output only the JSON object below.
    - Two worked examples (one answerable, one not).
-2. `user` — dynamic:
+2. `user` — dynamic. For every retrieved ticket the context holds its SUMMARY chunk(s) first, then its other matched chunks (context expansion, ADR-10):
 ```
 <context>
 <ticket id="TKT-1001" status="CLOSED" priority="HIGH" category="PAYMENT">
@@ -116,6 +116,6 @@ No body. **200** `{ "tickets": 30, "chunks": 52, "failed": [] }`. Per-ticket fai
 | Key | Default | Effect |
 |---|---|---|
 | `app.rag.top-k` | 5 | max chunks retrieved |
-| `app.rag.similarity-threshold` | 0.45 (to be calibrated in Step 5) | minimum cosine similarity |
+| `app.rag.similarity-threshold` | 0.40 (calibrated, `docs/rag-evaluation-report.md`) | minimum cosine similarity |
 
 Both are bound through `RagProperties` (`@ConfigurationProperties("app.rag")`, validated: top-k 1–20, threshold 0–1) and can be overridden with `APP_RAG_TOP_K` / `APP_RAG_SIMILARITY_THRESHOLD`. The effective values are echoed in every response's `retrieval` block.

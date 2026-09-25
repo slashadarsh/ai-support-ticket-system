@@ -113,7 +113,7 @@ These are the constraints FR-11 enforces. After trimming, a string of only white
 | Key | Default | Requirement |
 |---|---|---|
 | `app.rag.top-k` | 5 | NFR-4 |
-| `app.rag.similarity-threshold` | 0.45 | NFR-4, FR-21 |
+| `app.rag.similarity-threshold` | 0.40 (initially 0.45; calibrated in Step 5, see `docs/rag-evaluation-report.md`) | NFR-4, FR-21 |
 
 ---
 
@@ -228,7 +228,7 @@ These describe how the system is built, not how it behaves.
 | ID | Requirement | Source |
 |---|---|---|
 | PR-1 | Development follows Requirement → Specification → Plan/Tasks → Implementation → Testing → Review → Fix. Specs exist before the code they describe. | "Ask" |
-| PR-2 | Every prompt to the AI coding assistant is saved in `docs/prompt-history.md` and `.specstory/history/`. | "Prompt History" |
+| PR-2 | Every prompt to the AI coding assistant is saved in `docs/prompt-log.md` (readable) and `.specstory/history/` (raw). `docs/prompt-history.md` is a rewritten teaching version. | "Prompt History" |
 | PR-3 | At least one meaningful AI mistake (wrong code **or** an ungrounded/hallucinated answer) is caught and recorded with evidence in `docs/ai-mistakes-log.md`. | "Important" |
 | PR-4 | The repo keeps reusable AI steering files: Java/Spring Boot guidelines, testing guidelines, API standards, a documentation skill, RAG/vector-store guidelines, commands to review code and specs and to generate tests, and a command to review assistant output for hallucination. | "Generic Artefacts" |
 
@@ -318,7 +318,7 @@ Things the PDF leaves ambiguous. **Decided on 2026-09-25 by the project owner:**
 | NFR-12 | `/swagger-ui.html` reachable |
 | NFR-13 | RAG eval injection case (NFR-10) |
 | PR-1 | Git history (spec commits before code) |
-| PR-2 | `docs/prompt-history.md` |
+| PR-2 | `docs/prompt-log.md`, `.specstory/history/` |
 | PR-3 | AC-23 |
 | PR-4 | Presence of `.claude/rules`, `.claude/commands`, `.claude/skills` |
 

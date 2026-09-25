@@ -8,6 +8,7 @@ import com.example.tickets.ai.ask.CitationValidator.Verdict;
 import com.example.tickets.ai.ask.QueryAnalyzer.QueryPlan;
 import com.example.tickets.ai.config.RagProperties;
 import com.example.tickets.common.ApiExceptions.AiUnavailableException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -42,15 +43,18 @@ public class AskService {
     private final QueryAnalyzer queryAnalyzer;
     private final PromptFactory promptFactory;
     private final CitationValidator citationValidator;
+    private final SummaryChunkLookup summaries;
     private final RagProperties rag;
 
     public AskService(VectorStore vectorStore, ChatModel chatModel, QueryAnalyzer queryAnalyzer,
-                      PromptFactory promptFactory, CitationValidator citationValidator, RagProperties rag) {
+                      PromptFactory promptFactory, CitationValidator citationValidator,
+                      SummaryChunkLookup summaries, RagProperties rag) {
         this.vectorStore = vectorStore;
         this.chatModel = chatModel;
         this.queryAnalyzer = queryAnalyzer;
         this.promptFactory = promptFactory;
         this.citationValidator = citationValidator;
+        this.summaries = summaries;
         this.rag = rag;
     }
 
@@ -74,7 +78,8 @@ public class AskService {
             return noMatch(question, NoMatchReason.NO_RELEVANT_TICKETS, retrieval);
         }
 
-        ChatResponse response = callProvider(() -> chatModel.call(promptFactory.build(question, retrieved)));
+        List<Document> context = withSummaries(retrieved);
+        ChatResponse response = callProvider(() -> chatModel.call(promptFactory.build(question, context)));
         logUsage(response);
         String output = response.getResult() == null ? null : response.getResult().getOutput().getText();
 
@@ -93,6 +98,23 @@ public class AskService {
                 })
                 .toList();
         return new AskResponse(question, true, verdict.answer(), citations, null, retrieval);
+    }
+
+    /**
+     * Retrieval is per chunk, but a lone COMMENTS chunk hides the ticket's problem and resolution (M-11). The
+     * context therefore always carries each retrieved ticket's SUMMARY chunk(s) first, then its matched chunks.
+     */
+    private List<Document> withSummaries(List<Document> retrieved) {
+        Map<String, List<Document>> byTicket = new LinkedHashMap<>();
+        retrieved.forEach(d -> byTicket.computeIfAbsent(ticketId(d), k -> new ArrayList<>()));
+        summaries.summariesOf(byTicket.keySet()).forEach(d -> byTicket.get(ticketId(d)).add(d));
+        for (Document d : retrieved) {
+            List<Document> chunks = byTicket.get(ticketId(d));
+            if (chunks.stream().noneMatch(c -> c.getId().equals(d.getId()))) {
+                chunks.add(d);
+            }
+        }
+        return byTicket.values().stream().flatMap(List::stream).toList();
     }
 
     private static AskResponse noMatch(String question, NoMatchReason reason, Retrieval retrieval) {

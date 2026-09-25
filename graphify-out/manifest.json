@@ -1,0 +1,620 @@
+{
+  ".claude/hooks/log-prompt.sh": {
+    "mtime": 1790345333.7255251,
+    "seen": 1790356706.8914108,
+    "ast_hash": "315390effb5c7d45ec091d6010e29640",
+    "semantic_hash": "315390effb5c7d45ec091d6010e29640"
+  },
+  ".claude/launch.json": {
+    "mtime": 1790354500.4563255,
+    "seen": 1790356706.891413,
+    "ast_hash": "812f4fca1526c737859536c03d1754ee",
+    "semantic_hash": "812f4fca1526c737859536c03d1754ee"
+  },
+  ".claude/settings.json": {
+    "mtime": 1790342461.4513993,
+    "seen": 1790356706.891413,
+    "ast_hash": "697481e0b1382c316778ca3949f65473",
+    "semantic_hash": "697481e0b1382c316778ca3949f65473"
+  },
+  "backend/pom.xml": {
+    "mtime": 1790351292.2766862,
+    "seen": 1790356706.891414,
+    "ast_hash": "3d9f975a0a0b51c52e1aa2bdf0bbaeb9",
+    "semantic_hash": "3d9f975a0a0b51c52e1aa2bdf0bbaeb9"
+  },
+  "backend/src/main/java/com/example/tickets/SupportTicketsApplication.java": {
+    "mtime": 1790351292.2909586,
+    "seen": 1790356706.891415,
+    "ast_hash": "a11af9eb019969516c924f91787e9c53",
+    "semantic_hash": "a11af9eb019969516c924f91787e9c53"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ask/AskController.java": {
+    "mtime": 1790351475.3027768,
+    "seen": 1790356706.891415,
+    "ast_hash": "f66e6773e8b1f90b129a3b73e976d1ba",
+    "semantic_hash": "f66e6773e8b1f90b129a3b73e976d1ba"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ask/AskDtos.java": {
+    "mtime": 1790351455.0365195,
+    "seen": 1790356706.891416,
+    "ast_hash": "78dbbb62da348651b8b81f32578bc605",
+    "semantic_hash": "78dbbb62da348651b8b81f32578bc605"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ask/AskService.java": {
+    "mtime": 1790354616.523611,
+    "seen": 1790356706.891416,
+    "ast_hash": "211bd76528f2b04e85d35b0e08119895",
+    "semantic_hash": "211bd76528f2b04e85d35b0e08119895"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ask/CitationValidator.java": {
+    "mtime": 1790351448.685909,
+    "seen": 1790356706.891417,
+    "ast_hash": "ddb553c72da76ddecc44f5dadc351850",
+    "semantic_hash": "ddb553c72da76ddecc44f5dadc351850"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ask/NoMatchReason.java": {
+    "mtime": 1790351451.338958,
+    "seen": 1790356706.8914182,
+    "ast_hash": "fca6e7684790b6dd216131f5209a85c2",
+    "semantic_hash": "fca6e7684790b6dd216131f5209a85c2"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ask/PromptFactory.java": {
+    "mtime": 1790353330.438381,
+    "seen": 1790356706.8914182,
+    "ast_hash": "da2fb18c96c3959b3e94767e69fbd592",
+    "semantic_hash": "da2fb18c96c3959b3e94767e69fbd592"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ask/QueryAnalyzer.java": {
+    "mtime": 1790351424.0348632,
+    "seen": 1790356706.891419,
+    "ast_hash": "dcf1d6f215bf2bf509fe00ddce15fae7",
+    "semantic_hash": "dcf1d6f215bf2bf509fe00ddce15fae7"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ask/SummaryChunkLookup.java": {
+    "mtime": 1790354605.2636385,
+    "seen": 1790356706.89142,
+    "ast_hash": "6cec364d6082df1f69a7965f2a2b3015",
+    "semantic_hash": "6cec364d6082df1f69a7965f2a2b3015"
+  },
+  "backend/src/main/java/com/example/tickets/ai/config/RagProperties.java": {
+    "mtime": 1790351386.9000175,
+    "seen": 1790356706.89142,
+    "ast_hash": "bfb07dc3dde4ff4f02d556881a4a909e",
+    "semantic_hash": "bfb07dc3dde4ff4f02d556881a4a909e"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ingest/IndexingCoordinator.java": {
+    "mtime": 1790351414.088108,
+    "seen": 1790356706.8914208,
+    "ast_hash": "fc15d85e56bff6b1f5ca0616f9062395",
+    "semantic_hash": "fc15d85e56bff6b1f5ca0616f9062395"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ingest/TicketChunker.java": {
+    "mtime": 1790352139.563765,
+    "seen": 1790356706.8914208,
+    "ast_hash": "b5768f7efbff9f9848da1a61d58f4747",
+    "semantic_hash": "b5768f7efbff9f9848da1a61d58f4747"
+  },
+  "backend/src/main/java/com/example/tickets/ai/ingest/TicketIndexer.java": {
+    "mtime": 1790351407.736112,
+    "seen": 1790356706.891422,
+    "ast_hash": "15c16c5b11b53881f2b37924d8aca2db",
+    "semantic_hash": "15c16c5b11b53881f2b37924d8aca2db"
+  },
+  "backend/src/main/java/com/example/tickets/comment/Comment.java": {
+    "mtime": 1790351292.33927,
+    "seen": 1790356706.891423,
+    "ast_hash": "e56dbc83f8061e9ebcfad5f4dbfada5c",
+    "semantic_hash": "e56dbc83f8061e9ebcfad5f4dbfada5c"
+  },
+  "backend/src/main/java/com/example/tickets/comment/CommentRepository.java": {
+    "mtime": 1790351292.3509548,
+    "seen": 1790356706.891423,
+    "ast_hash": "e2febdd09155fa4482c11de6c903cdad",
+    "semantic_hash": "e2febdd09155fa4482c11de6c903cdad"
+  },
+  "backend/src/main/java/com/example/tickets/common/ApiExceptions.java": {
+    "mtime": 1790351310.060688,
+    "seen": 1790356706.891424,
+    "ast_hash": "b52eb79497f7effffac620fcf7bff4a2",
+    "semantic_hash": "b52eb79497f7effffac620fcf7bff4a2"
+  },
+  "backend/src/main/java/com/example/tickets/common/GlobalExceptionHandler.java": {
+    "mtime": 1790351336.615933,
+    "seen": 1790356706.891424,
+    "ast_hash": "7a1a80365e3e3dcdaf5ae0c3869644ca",
+    "semantic_hash": "7a1a80365e3e3dcdaf5ae0c3869644ca"
+  },
+  "backend/src/main/java/com/example/tickets/common/PageResponse.java": {
+    "mtime": 1790351312.4088514,
+    "seen": 1790356706.8914251,
+    "ast_hash": "0945e9478d7f3d38ba5e98f6e58165a0",
+    "semantic_hash": "0945e9478d7f3d38ba5e98f6e58165a0"
+  },
+  "backend/src/main/java/com/example/tickets/common/Texts.java": {
+    "mtime": 1790351303.9528797,
+    "seen": 1790356706.891426,
+    "ast_hash": "9e6c1f312f1236caa7bab24b972566ad",
+    "semantic_hash": "9e6c1f312f1236caa7bab24b972566ad"
+  },
+  "backend/src/main/java/com/example/tickets/seed/SeedDataLoader.java": {
+    "mtime": 1790351508.0991812,
+    "seen": 1790356706.891426,
+    "ast_hash": "7c101aa2bcfa55abea072a748c0f6e5b",
+    "semantic_hash": "7c101aa2bcfa55abea072a748c0f6e5b"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/Category.java": {
+    "mtime": 1790351292.3177722,
+    "seen": 1790356706.891427,
+    "ast_hash": "99b2a236cd2e5b32f58fbd1bbee2ba2c",
+    "semantic_hash": "99b2a236cd2e5b32f58fbd1bbee2ba2c"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/Priority.java": {
+    "mtime": 1790351292.3101885,
+    "seen": 1790356706.891428,
+    "ast_hash": "281b1c6602d3c286216f7e9c7adcb95b",
+    "semantic_hash": "281b1c6602d3c286216f7e9c7adcb95b"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/Ticket.java": {
+    "mtime": 1790351292.3289113,
+    "seen": 1790356706.891428,
+    "ast_hash": "9fcc7bf950996fc8b8c91a7f8edbf2e2",
+    "semantic_hash": "9fcc7bf950996fc8b8c91a7f8edbf2e2"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/TicketChangedEvent.java": {
+    "mtime": 1790351351.3158083,
+    "seen": 1790356706.8914292,
+    "ast_hash": "afcd9280b092da97681011ef41f43852",
+    "semantic_hash": "afcd9280b092da97681011ef41f43852"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/TicketController.java": {
+    "mtime": 1790351377.317352,
+    "seen": 1790356706.8914292,
+    "ast_hash": "61cc4f9576554da98c7ac31864df143d",
+    "semantic_hash": "61cc4f9576554da98c7ac31864df143d"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/TicketDtos.java": {
+    "mtime": 1790351345.3528028,
+    "seen": 1790356706.89143,
+    "ast_hash": "15f13f44c7fd812fd778c70b15188c7a",
+    "semantic_hash": "15f13f44c7fd812fd778c70b15188c7a"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/TicketMapper.java": {
+    "mtime": 1790351349.9115796,
+    "seen": 1790356706.89143,
+    "ast_hash": "ad956c282635dcc5a8e227dc330e344e",
+    "semantic_hash": "ad956c282635dcc5a8e227dc330e344e"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/TicketRepository.java": {
+    "mtime": 1790351301.3083568,
+    "seen": 1790356706.8914309,
+    "ast_hash": "0e7938c55b143806d9dcc4036582bc02",
+    "semantic_hash": "0e7938c55b143806d9dcc4036582bc02"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/TicketService.java": {
+    "mtime": 1790351366.914741,
+    "seen": 1790356706.891432,
+    "ast_hash": "f5965265625c0956b92b167f909deea0",
+    "semantic_hash": "f5965265625c0956b92b167f909deea0"
+  },
+  "backend/src/main/java/com/example/tickets/ticket/TicketStatus.java": {
+    "mtime": 1790351292.2987785,
+    "seen": 1790356706.891432,
+    "ast_hash": "b737ea7ffcec1493698a68e5439d11e9",
+    "semantic_hash": "b737ea7ffcec1493698a68e5439d11e9"
+  },
+  "backend/src/main/resources/db/migration/V1__ticket_and_comment.sql": {
+    "mtime": 1790351022.8451629,
+    "seen": 1790356706.891433,
+    "ast_hash": "ddd68e9740d9c73eb93200584862dc32",
+    "semantic_hash": "ddd68e9740d9c73eb93200584862dc32"
+  },
+  "backend/src/main/resources/db/migration/V2__vector_store.sql": {
+    "mtime": 1790351025.2004724,
+    "seen": 1790356706.891433,
+    "ast_hash": "f30a16e40c62e3e1987e8e593ae876d2",
+    "semantic_hash": "f30a16e40c62e3e1987e8e593ae876d2"
+  },
+  "backend/src/main/resources/seed/tickets.json": {
+    "mtime": 1790351557.2636364,
+    "seen": 1790356706.891434,
+    "ast_hash": "fab7f84a4d58d6e1f3d89c4612cb2d7f",
+    "semantic_hash": "fab7f84a4d58d6e1f3d89c4612cb2d7f"
+  },
+  "backend/src/test/java/com/example/tickets/RestartIT.java": {
+    "mtime": 1790353048.5747995,
+    "seen": 1790356706.891435,
+    "ast_hash": "cb281ec3f7b77b5666daf734d4e28b06",
+    "semantic_hash": "cb281ec3f7b77b5666daf734d4e28b06"
+  },
+  "backend/src/test/java/com/example/tickets/ai/ProviderRetryIT.java": {
+    "mtime": 1790353323.1881363,
+    "seen": 1790356706.891435,
+    "ast_hash": "6a88f95910e0548399bdd02f41c4fc7d",
+    "semantic_hash": "6a88f95910e0548399bdd02f41c4fc7d"
+  },
+  "backend/src/test/java/com/example/tickets/ai/RagEvaluationIT.java": {
+    "mtime": 1790353869.0163789,
+    "seen": 1790356706.891436,
+    "ast_hash": "1c9bdc1f53273484da2b0cc190ce7b49",
+    "semantic_hash": "1c9bdc1f53273484da2b0cc190ce7b49"
+  },
+  "backend/src/test/java/com/example/tickets/ai/ask/AskApiIT.java": {
+    "mtime": 1790354629.8151946,
+    "seen": 1790356706.891436,
+    "ast_hash": "f1e2651ac0181e65bfa4193e1b36ad37",
+    "semantic_hash": "f1e2651ac0181e65bfa4193e1b36ad37"
+  },
+  "backend/src/test/java/com/example/tickets/ai/ask/CitationValidatorTest.java": {
+    "mtime": 1790352216.1547897,
+    "seen": 1790356706.891437,
+    "ast_hash": "547a81f477f36392af3a21eb7afc2486",
+    "semantic_hash": "547a81f477f36392af3a21eb7afc2486"
+  },
+  "backend/src/test/java/com/example/tickets/ai/ask/PromptFactoryTest.java": {
+    "mtime": 1790352952.0382016,
+    "seen": 1790356706.891437,
+    "ast_hash": "39aa5bba8a1172bfd38243b2ee2d079d",
+    "semantic_hash": "39aa5bba8a1172bfd38243b2ee2d079d"
+  },
+  "backend/src/test/java/com/example/tickets/ai/ask/QueryAnalyzerTest.java": {
+    "mtime": 1790352206.5532424,
+    "seen": 1790356706.891438,
+    "ast_hash": "e38a7b20fcf9d11bf733788e6c12f7e9",
+    "semantic_hash": "e38a7b20fcf9d11bf733788e6c12f7e9"
+  },
+  "backend/src/test/java/com/example/tickets/ai/ask/RagPropertiesIT.java": {
+    "mtime": 1790353259.0104165,
+    "seen": 1790356706.8914392,
+    "ast_hash": "659f92c32c54ae9d7ef7b3b598f00408",
+    "semantic_hash": "659f92c32c54ae9d7ef7b3b598f00408"
+  },
+  "backend/src/test/java/com/example/tickets/ai/ingest/IngestionIT.java": {
+    "mtime": 1790353014.2809637,
+    "seen": 1790356706.8914392,
+    "ast_hash": "fb58263959ac2eeb4f96ae93fdf9f4e6",
+    "semantic_hash": "fb58263959ac2eeb4f96ae93fdf9f4e6"
+  },
+  "backend/src/test/java/com/example/tickets/ai/ingest/TicketChunkerTest.java": {
+    "mtime": 1790352199.158543,
+    "seen": 1790356706.8914402,
+    "ast_hash": "bd281df2683607535591d086ff801529",
+    "semantic_hash": "bd281df2683607535591d086ff801529"
+  },
+  "backend/src/test/java/com/example/tickets/support/AbstractIntegrationTest.java": {
+    "mtime": 1790352175.5142617,
+    "seen": 1790356706.8914409,
+    "ast_hash": "58259a0f7925f1e6d679207d8826a2e0",
+    "semantic_hash": "58259a0f7925f1e6d679207d8826a2e0"
+  },
+  "backend/src/test/java/com/example/tickets/support/FakeEmbeddingModel.java": {
+    "mtime": 1790352163.9053137,
+    "seen": 1790356706.8914409,
+    "ast_hash": "9c879ed3f453884dab6109b4d3a0a09b",
+    "semantic_hash": "9c879ed3f453884dab6109b4d3a0a09b"
+  },
+  "backend/src/test/java/com/example/tickets/support/TestAiConfig.java": {
+    "mtime": 1790352166.3140593,
+    "seen": 1790356706.8914418,
+    "ast_hash": "6715aef447a316af5ba7afcc6dae6a6d",
+    "semantic_hash": "6715aef447a316af5ba7afcc6dae6a6d"
+  },
+  "backend/src/test/java/com/example/tickets/ticket/StateMachineIT.java": {
+    "mtime": 1790353001.3497915,
+    "seen": 1790356706.8914418,
+    "ast_hash": "c1c92bd152f56b586d37864500a29774",
+    "semantic_hash": "c1c92bd152f56b586d37864500a29774"
+  },
+  "backend/src/test/java/com/example/tickets/ticket/TicketApiIT.java": {
+    "mtime": 1790352989.2349448,
+    "seen": 1790356706.891443,
+    "ast_hash": "fa151277a650c034b4137693f28060d9",
+    "semantic_hash": "fa151277a650c034b4137693f28060d9"
+  },
+  "backend/src/test/java/com/example/tickets/ticket/TicketStatusTest.java": {
+    "mtime": 1790352184.1203115,
+    "seen": 1790356706.891444,
+    "ast_hash": "953ff7899d0062795ba71d687ffa6255",
+    "semantic_hash": "953ff7899d0062795ba71d687ffa6255"
+  },
+  "backend/src/test/java/com/example/tickets/ticket/TicketValidationWebTest.java": {
+    "mtime": 1790353064.751737,
+    "seen": 1790356706.891444,
+    "ast_hash": "7ea4caa68d9279d81ef15cad259ed9ad",
+    "semantic_hash": "7ea4caa68d9279d81ef15cad259ed9ad"
+  },
+  "backend/src/test/resources/rag-eval/golden-questions.json": {
+    "mtime": 1790353836.7513409,
+    "seen": 1790356706.891445,
+    "ast_hash": "3d4c7710ff309373cb96e13c14723c94",
+    "semantic_hash": "3d4c7710ff309373cb96e13c14723c94"
+  },
+  "frontend/package.json": {
+    "mtime": 1790353489.5052092,
+    "seen": 1790356706.891445,
+    "ast_hash": "994009d58768f9febf4f5d0f496dc8e0",
+    "semantic_hash": "994009d58768f9febf4f5d0f496dc8e0"
+  },
+  "frontend/src/App.tsx": {
+    "mtime": 1790353567.5736387,
+    "seen": 1790356706.891446,
+    "ast_hash": "bd68dcc8ee9687179b251f4266f6cad1",
+    "semantic_hash": "bd68dcc8ee9687179b251f4266f6cad1"
+  },
+  "frontend/src/api.ts": {
+    "mtime": 1790353587.3798804,
+    "seen": 1790356706.891446,
+    "ast_hash": "cc518497bf21b4f49500971a9c0e8683",
+    "semantic_hash": "cc518497bf21b4f49500971a9c0e8683"
+  },
+  "frontend/src/components/Common.tsx": {
+    "mtime": 1790353517.41998,
+    "seen": 1790356706.891447,
+    "ast_hash": "04180c0200003edb6e0f97fac4d46b66",
+    "semantic_hash": "04180c0200003edb6e0f97fac4d46b66"
+  },
+  "frontend/src/main.tsx": {
+    "mtime": 1790353569.185616,
+    "seen": 1790356706.891447,
+    "ast_hash": "f6904e0d3487abe55ea51a8f3c4b2ac5",
+    "semantic_hash": "f6904e0d3487abe55ea51a8f3c4b2ac5"
+  },
+  "frontend/src/pages/AskPage.test.tsx": {
+    "mtime": 1790353614.5999577,
+    "seen": 1790356706.891448,
+    "ast_hash": "540446f73785721bc75617d917bc0745",
+    "semantic_hash": "540446f73785721bc75617d917bc0745"
+  },
+  "frontend/src/pages/AskPage.tsx": {
+    "mtime": 1790353564.4252503,
+    "seen": 1790356706.891449,
+    "ast_hash": "d21aaa28b972ffa5b112c33ec9b80fcd",
+    "semantic_hash": "d21aaa28b972ffa5b112c33ec9b80fcd"
+  },
+  "frontend/src/pages/CreateTicketPage.test.tsx": {
+    "mtime": 1790353600.4686992,
+    "seen": 1790356706.891449,
+    "ast_hash": "0a5482c454898bed25e4122d78828d73",
+    "semantic_hash": "0a5482c454898bed25e4122d78828d73"
+  },
+  "frontend/src/pages/CreateTicketPage.tsx": {
+    "mtime": 1790353536.4722705,
+    "seen": 1790356706.8914502,
+    "ast_hash": "1fb1970ae73a89319f1f917473e91572",
+    "semantic_hash": "1fb1970ae73a89319f1f917473e91572"
+  },
+  "frontend/src/pages/TicketDetailPage.test.tsx": {
+    "mtime": 1790353606.8460696,
+    "seen": 1790356706.8914502,
+    "ast_hash": "45556ebb12ec9ee1e5aac707ed6924e4",
+    "semantic_hash": "45556ebb12ec9ee1e5aac707ed6924e4"
+  },
+  "frontend/src/pages/TicketDetailPage.tsx": {
+    "mtime": 1790353556.0233305,
+    "seen": 1790356706.891451,
+    "ast_hash": "f7e29ef4b29db45feb29c18d2d07b4d5",
+    "semantic_hash": "f7e29ef4b29db45feb29c18d2d07b4d5"
+  },
+  "frontend/src/pages/TicketListPage.tsx": {
+    "mtime": 1790353589.3887963,
+    "seen": 1790356706.891451,
+    "ast_hash": "9036c938eaf8870c78478790a149f4d5",
+    "semantic_hash": "9036c938eaf8870c78478790a149f4d5"
+  },
+  "frontend/src/test/helpers.tsx": {
+    "mtime": 1790353594.9466743,
+    "seen": 1790356706.8914518,
+    "ast_hash": "b2936d4b9732d65d0e9dcf6d83a95a9c",
+    "semantic_hash": "b2936d4b9732d65d0e9dcf6d83a95a9c"
+  },
+  "frontend/src/test/setup.ts": {
+    "mtime": 1790353590.6376555,
+    "seen": 1790356706.8914518,
+    "ast_hash": "3ecda893b729fa571be06f287f346d67",
+    "semantic_hash": "3ecda893b729fa571be06f287f346d67"
+  },
+  "frontend/tsconfig.json": {
+    "mtime": 1790353498.8169537,
+    "seen": 1790356706.891453,
+    "ast_hash": "9839a58c573152ebf285a3476d222898",
+    "semantic_hash": "9839a58c573152ebf285a3476d222898"
+  },
+  "frontend/vite.config.ts": {
+    "mtime": 1790353496.8851192,
+    "seen": 1790356706.891454,
+    "ast_hash": "0cd385c478c252c38a1850dfe50d13d7",
+    "semantic_hash": "0cd385c478c252c38a1850dfe50d13d7"
+  },
+  ".claude/commands/generate-tests.md": {
+    "mtime": 1790342443.793435,
+    "seen": 1790356706.891454,
+    "ast_hash": "0ebda77243155b17a5cc3420f577621a",
+    "semantic_hash": "0ebda77243155b17a5cc3420f577621a"
+  },
+  ".claude/commands/review-code.md": {
+    "mtime": 1790342435.8711948,
+    "seen": 1790356706.891455,
+    "ast_hash": "e9ea1ae718a6ed29a83da9b31a9473e9",
+    "semantic_hash": "e9ea1ae718a6ed29a83da9b31a9473e9"
+  },
+  ".claude/commands/review-rag-output.md": {
+    "mtime": 1790342451.1627872,
+    "seen": 1790356706.891455,
+    "ast_hash": "4b63a6148b708f09d09990c21ed5403b",
+    "semantic_hash": "4b63a6148b708f09d09990c21ed5403b"
+  },
+  ".claude/commands/review-spec.md": {
+    "mtime": 1790342439.888637,
+    "seen": 1790356706.891456,
+    "ast_hash": "d0895938f2e8d72609a56512ba2fe75b",
+    "semantic_hash": "d0895938f2e8d72609a56512ba2fe75b"
+  },
+  ".claude/rules/api-standards.md": {
+    "mtime": 1790342308.3809795,
+    "seen": 1790356706.891456,
+    "ast_hash": "ddcbd35c9f11852ad3187282e3b9c5cf",
+    "semantic_hash": "ddcbd35c9f11852ad3187282e3b9c5cf"
+  },
+  ".claude/rules/java-springboot.md": {
+    "mtime": 1790342303.260736,
+    "seen": 1790356706.891457,
+    "ast_hash": "35bf688002de191436fad7585031fd6c",
+    "semantic_hash": "35bf688002de191436fad7585031fd6c"
+  },
+  ".claude/rules/rag-vector-store.md": {
+    "mtime": 1790349401.7919621,
+    "seen": 1790356706.891457,
+    "ast_hash": "79d78f345ede2d87adf1a52d11eeb64d",
+    "semantic_hash": "79d78f345ede2d87adf1a52d11eeb64d"
+  },
+  ".claude/rules/testing.md": {
+    "mtime": 1790349400.683932,
+    "seen": 1790356706.891458,
+    "ast_hash": "621536f4bc66cfe9cdd4c1419442b618",
+    "semantic_hash": "621536f4bc66cfe9cdd4c1419442b618"
+  },
+  ".claude/skills/documentation/SKILL.md": {
+    "mtime": 1790342456.342907,
+    "seen": 1790356706.891459,
+    "ast_hash": "d7f2e8f40249831c1e798e3e746727f8",
+    "semantic_hash": "d7f2e8f40249831c1e798e3e746727f8"
+  },
+  ".specstory/history/2026-09-25_9a832eb6.md": {
+    "mtime": 1790346425.572992,
+    "seen": 1790356706.891459,
+    "ast_hash": "c7bb0f8e6273756fe79912caf1b7538b",
+    "semantic_hash": "c7bb0f8e6273756fe79912caf1b7538b"
+  },
+  ".specstory/history/2026-09-25_eceaf84f.md": {
+    "mtime": 1790356428.6638381,
+    "seen": 1790356706.8914602,
+    "ast_hash": "f619ae5a6af331c436061738dee3465f",
+    "semantic_hash": "f619ae5a6af331c436061738dee3465f"
+  },
+  "CLAUDE.md": {
+    "mtime": 1790343910.5573285,
+    "seen": 1790356706.8914602,
+    "ast_hash": "0985698c2e8c6cffa2c4963956ce4114",
+    "semantic_hash": "0985698c2e8c6cffa2c4963956ce4114"
+  },
+  "README.md": {
+    "mtime": 1790354701.2135172,
+    "seen": 1790356706.8914611,
+    "ast_hash": "6749046353d2c4e59007e927eabc07a8",
+    "semantic_hash": "6749046353d2c4e59007e927eabc07a8"
+  },
+  "backend/src/main/resources/application.yml": {
+    "mtime": 1790354157.206166,
+    "seen": 1790356706.8914611,
+    "ast_hash": "8997ac6e9cc8b9e3a9a3d4d4214844a8",
+    "semantic_hash": "8997ac6e9cc8b9e3a9a3d4d4214844a8"
+  },
+  "backend/src/test/resources/application-rageval.yml": {
+    "mtime": 1790353838.5578156,
+    "seen": 1790356706.8914618,
+    "ast_hash": "0264936fe89170ae2c2efb55b44f8ada",
+    "semantic_hash": "0264936fe89170ae2c2efb55b44f8ada"
+  },
+  "backend/src/test/resources/application-test.yml": {
+    "mtime": 1790352155.9769804,
+    "seen": 1790356706.8914628,
+    "ast_hash": "d1865fde8a6c012ea06bc5d23849860c",
+    "semantic_hash": "d1865fde8a6c012ea06bc5d23849860c"
+  },
+  "docs/ai-mistakes-log.md": {
+    "mtime": 1790354683.541225,
+    "seen": 1790356706.891464,
+    "ast_hash": "0ee11babaccc24239e5c9a7337aa6918",
+    "semantic_hash": "0ee11babaccc24239e5c9a7337aa6918"
+  },
+  "docs/prompt-history.md": {
+    "mtime": 1790356428.663548,
+    "seen": 1790356706.891464,
+    "ast_hash": "3a81b92a46412d8c907cc1bf99e5ca3b",
+    "semantic_hash": "3a81b92a46412d8c907cc1bf99e5ca3b"
+  },
+  "docs/rag-evaluation-report.md": {
+    "mtime": 1790354889.609236,
+    "seen": 1790356706.891465,
+    "ast_hash": "b301adf0079f60dbd530205e918a7b68",
+    "semantic_hash": "b301adf0079f60dbd530205e918a7b68"
+  },
+  "docs/token-optimisation.md": {
+    "mtime": 1790354715.0292084,
+    "seen": 1790356706.891465,
+    "ast_hash": "447f54dfd12c939c5a2ef98ac18b5c95",
+    "semantic_hash": "447f54dfd12c939c5a2ef98ac18b5c95"
+  },
+  "frontend/index.html": {
+    "mtime": 1790353500.2692351,
+    "seen": 1790356706.891466,
+    "ast_hash": "b604d99e9331e622a1195b53a27f2905",
+    "semantic_hash": "b604d99e9331e622a1195b53a27f2905"
+  },
+  "spec/api-contract.md": {
+    "mtime": 1790347611.0237067,
+    "seen": 1790356706.891466,
+    "ast_hash": "80505807568ff13aa6b6011dd1954451",
+    "semantic_hash": "80505807568ff13aa6b6011dd1954451"
+  },
+  "spec/architecture.md": {
+    "mtime": 1790354683.6081414,
+    "seen": 1790356706.891467,
+    "ast_hash": "c3c0da2da65fa905cb3cf54e877180b2",
+    "semantic_hash": "c3c0da2da65fa905cb3cf54e877180b2"
+  },
+  "spec/data-model.md": {
+    "mtime": 1790347558.3603427,
+    "seen": 1790356706.891468,
+    "ast_hash": "cd9d09859b0c157d27a569f38be61410",
+    "semantic_hash": "cd9d09859b0c157d27a569f38be61410"
+  },
+  "spec/evaluation-strategy.md": {
+    "mtime": 1790354683.6066282,
+    "seen": 1790356706.891468,
+    "ast_hash": "6dc2db9270b2c14373ac72c29f37cb99",
+    "semantic_hash": "6dc2db9270b2c14373ac72c29f37cb99"
+  },
+  "spec/rag-api-contract.md": {
+    "mtime": 1790354683.6072168,
+    "seen": 1790356706.891469,
+    "ast_hash": "b6d9f0d62b9dcca25d18e4c104c21c48",
+    "semantic_hash": "b6d9f0d62b9dcca25d18e4c104c21c48"
+  },
+  "spec/rag-ingestion.md": {
+    "mtime": 1790347653.1325166,
+    "seen": 1790356706.891469,
+    "ast_hash": "98da6ed5f596cd8d3dc45871a83e067e",
+    "semantic_hash": "98da6ed5f596cd8d3dc45871a83e067e"
+  },
+  "spec/requirements.md": {
+    "mtime": 1790354683.605962,
+    "seen": 1790356706.8914702,
+    "ast_hash": "56814da8f7d842fcf5117767af9c32f8",
+    "semantic_hash": "56814da8f7d842fcf5117767af9c32f8"
+  },
+  "spec/state-machine.md": {
+    "mtime": 1790347574.1265056,
+    "seen": 1790356706.8914702,
+    "ast_hash": "9d907ad7ab23e8f4876671867fb181f0",
+    "semantic_hash": "9d907ad7ab23e8f4876671867fb181f0"
+  },
+  "spec/tasks.md": {
+    "mtime": 1790354683.608669,
+    "seen": 1790356706.8914711,
+    "ast_hash": "ba6baa5a5fc05da79cb51e38181ff6fa",
+    "semantic_hash": "ba6baa5a5fc05da79cb51e38181ff6fa"
+  },
+  "spec/test-strategy.md": {
+    "mtime": 1790347810.4706185,
+    "seen": 1790356706.8914711,
+    "ast_hash": "cdabe0ea1bba020f6fc3074486b9ff2a",
+    "semantic_hash": "cdabe0ea1bba020f6fc3074486b9ff2a"
+  },
+  "spec/ui-flow.md": {
+    "mtime": 1790347782.4917653,
+    "seen": 1790356706.8914719,
+    "ast_hash": "7c39e99a3c0b4e911d1fded5b135400a",
+    "semantic_hash": "7c39e99a3c0b4e911d1fded5b135400a"
+  }
+}

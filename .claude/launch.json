@@ -1,0 +1,32 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "backend",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd backend && LOGGING_LEVEL_COM_EXAMPLE_TICKETS_AI_ASK=DEBUG JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home mvn -q spring-boot:run -Dspring-boot.run.profiles=dev"
+      ],
+      "port": 8080
+    },
+    {
+      "name": "frontend",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd frontend && npm run dev"
+      ],
+      "port": 5173
+    },
+    {
+      "name": "backend-low-threshold",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd backend && APP_RAG_SIMILARITY_THRESHOLD=0.25 JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home mvn -q spring-boot:run -Dspring-boot.run.profiles=dev"
+      ],
+      "port": 8080
+    }
+  ]
+}

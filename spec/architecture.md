@@ -197,6 +197,14 @@ Rules combine with AND. An unknown key under R1 returns no chunks, so the no-mat
 4. **Server-side citation check.** Cited IDs not in the retrieved set are dropped and logged as warnings. If no valid citation remains, the response becomes no-match (a grounded answer must cite ≥ 1 retrieved ticket, FR-20).
 5. **Low randomness.** `temperature: 0`.
 
+### ADR-10 Context expansion: retrieve chunks, answer from tickets
+
+**Context.** The evaluation found an answer claiming TKT-1003 had "no detailed resolution" (M-11): top-K held only its COMMENTS chunk, so the LLM never saw the resolution in its SUMMARY chunk.
+
+**Decision.** Similarity search stays chunk-based (precise matching), but the LLM context is ticket-based: for every retrieved ticket, its SUMMARY chunk(s) are loaded by metadata (`SummaryChunkLookup`, plain SQL on `vector_store`, no second embedding call) and placed before its matched chunks. `retrieval.matches` still reports only true similarity matches. The prompt also forbids inferring absence from partial context.
+
+**Consequences.** Slightly larger prompts (≤ top-K extra short chunks); no extra provider calls; negative claims about tickets are no longer produced from partial context.
+
 ### ADR-9 Test database
 
 Integration tests run against a dedicated local database `tickets_test` on the same PostgreSQL 15 + pgvector instance, not Testcontainers. Docker is not running on the development machine, and the local instance is the same version and extension as runtime. Each test class starts from a truncated schema. This supersedes the Testcontainers line in `.claude/rules/testing.md`, which has been updated.
@@ -206,7 +214,7 @@ Integration tests run against a dedicated local database `tickets_test` on the s
 | Key | Default | Notes |
 |---|---|---|
 | `app.rag.top-k` | 5 | 1–20 |
-| `app.rag.similarity-threshold` | 0.45 | 0–1, cosine **similarity** (not distance). Calibrated in Step 5. |
+| `app.rag.similarity-threshold` | 0.40 | 0–1, cosine **similarity** (not distance). Calibrated in Step 5 (was 0.45). |
 | `app.rag.chunk.max-tokens` | 400 | comment packing size |
 | `app.seed.enabled` | false (`true` in the `dev` profile) | load `seed/tickets.json` if the ticket table is empty |
 | `spring.ai.openai.api-key` | `${OPENAI_API_KEY}` | env only (NFR-6) |
